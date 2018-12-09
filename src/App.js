@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 import './styles/appStyles.min.css';
 import IntroScreen from './js/IntroScreen';
+import Header from './js/Header';
 import AudioButtons from './js/AudioButtons';
 import ShareConfirmationScreen from './js/ShareConfirmationScreen';
 import AudioWidget from './js/AudioWidget';
@@ -30,6 +31,13 @@ class App extends Component {
   }
   navPageHome = () => {
     this.setState({pageState: 'intro'})
+  }
+  navPageBack = () => {
+    if (this.state.pageState == 'record'){
+      this.setState({pageState: 'intro'});
+    } else if (this.state.pageState == 'shareConfirmation'){
+      this.setState({pageState: 'record'});
+    }
   }
 
   //AUDIO FUNCTIONS
@@ -69,10 +77,22 @@ class App extends Component {
       return this.transitionFade(introScreen);
     }
   };
-  renderLogo = () => {
+  renderPageShareConfirmation = () => {
+    if (this.state.pageState == 'shareConfirmation'){
+      let shareConfirmationScreen = <ShareConfirmationScreen shareConfirmationClick={this.navPageListen} navPageHome={this.navPageHome}/>;
+      return this.transitionFade(shareConfirmationScreen);
+    }
+  };
+  renderCompLogo = () => {
     if (this.state.pageState == 'intro'){
       let logo = <Logo></Logo>;
       return this.transitionFade(logo);
+    }
+  };
+  renderCompHeader = () => {
+    if (this.state.pageState != 'intro'){
+      let header = <Header navPageBack={this.navPageBack} pageState={this.state.pageState}></Header>;
+      return this.transitionFade(header);
     }
   }
 
@@ -82,24 +102,20 @@ class App extends Component {
       navPageHome={this.navPageHome} navPageConfirmation={this.navPageConfirmation} audioReplay={this.audioReplay}/>;
       return this.transitionFade(audioButtons);
     }
-  }
+  };
   renderCompAudioWidget = () => {
     if (this.state.pageState == 'record' || this.state.pageState == 'listen'){
       let audioWidget = <AudioWidget pageState={this.state.pageState} audioState={this.state.audioState}/>;
       return this.transitionFade(audioWidget);
     }
   }
-  renderPageShareConfirmation = () => {
-    if (this.state.pageState == 'shareConfirmation'){
-      let shareConfirmationScreen = <ShareConfirmationScreen shareConfirmationClick={this.navPageListen} navPageHome={this.navPageHome}/>;
-      return this.transitionFade(shareConfirmationScreen);
-    }
-  }
+
 
   render() {
     return (
       <div className="app-container">
         <div className="app-header">
+          {this.renderCompHeader()}
         </div>
         <div className="app-component-holder">
           {this.renderPageIntro()}
@@ -108,7 +124,7 @@ class App extends Component {
         </div>
         <div className="app-footer">
           {this.renderCompAudioWidget()}
-          {this.renderLogo()}
+          {this.renderCompLogo()}
         </div>
       </div>
     );

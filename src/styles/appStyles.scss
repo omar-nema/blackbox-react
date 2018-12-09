@@ -83,6 +83,11 @@ html {
   transition: opacity .5s ease-in;
 }
 
+.app-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
 
 //audiobuttons change state
 //if we are in record page + state of play
