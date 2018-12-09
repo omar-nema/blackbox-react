@@ -1,0 +1,69 @@
+@import 'globalStyles';
+
+body {
+  font-family: 'Karla', 'sans-serif' !important;
+}
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  display: flex;
+  align-items: center; //veritcal
+  justify-content: center;
+}
+.app-component-holder {
+  // max-width: $width-app-pct;
+  flex-basis: $width-app-pct;
+}
+.audio-widget {
+  background: #0E0E0E;
+  border-top: 1px solid #4A4747;
+  .audio-status {
+    color: #CDCDCD;
+  }
+  .audio-timer {
+    color: #939292;
+  }
+}
+.app-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+
+
+
+
+
+
+strong {
+  font-weight: 700;
+}
+html {
+  font-size: 20px;
+}
+
+.button {
+  border-width: 1px;
+  border-style: solid;
+  padding: 20px 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+  cursor: pointer;
+}
+.dialog-container {
+  border: 1px solid #9C9A9A;
+  padding: 20px;
+  margin-bottom: 30px;
+  border-radius: 2px;
+  .dialog-text {
+    color: $color-text-grey;
+  }
+}
+
+//audiobuttons change state
+//if we are in record page + state of play
+//run (voiceRecordPlay)
+//state

@@ -1,0 +1,24 @@
+@import 'globalStyles';
+
+.dialog-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.share-confirm {
+  border-color: $color-start;
+  color: $color-start;
+  flex-basis: 80%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-left: 10px;
+}
+.share-cancel {
+  border-color: $color-neutral;
+  color: $color-neutral;
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

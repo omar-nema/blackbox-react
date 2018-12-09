@@ -1,0 +1,26 @@
+@import 'globalStyles';
+
+.button.audio {
+  margin-bottom: 20px;
+}
+.action-pause {
+  border-color: $color-pause;
+  color: $color-pause;
+  transform: scale(1);
+}
+.action-pause.init {
+  border-color: $color-start;
+  color: $color-start;
+  transform: scale(1.04);
+}
+.action-start {
+  border-color: $color-start;
+  color: $color-start;
+}
+.action-start.init, .action-stop.init {
+  opacity: .3;
+}
+.action-stop {
+  border-color: $color-stop;
+  color: $color-stop;
+}

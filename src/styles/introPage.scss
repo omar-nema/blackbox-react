@@ -1,0 +1,10 @@
+@import 'globalStyles';
+
+
+.action-begin-exchange {
+  color: $color-start;
+  border-color: $color-start;
+  box-shadow: 0 1px 4px 3px #353535;
+  flex-basis: 100%;
+  // background: #122b26;
+}
