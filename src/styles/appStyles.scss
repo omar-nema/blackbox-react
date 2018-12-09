@@ -66,24 +66,23 @@ html {
 
 
 
-// .fade-leave {
-//   opacity: 1;
-// }
-//
-// .fade-leave.example-leave-active {
-//   opacity: 0.01;
-//   transition: opacity 300ms ease-in;
-// }
-//
+.fade-leave {
+  opacity: 1;
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 .fade-appear {
   opacity: 0.01;
 }
-
 .fade-appear.fade-appear-active {
   opacity: 1;
-  transition: opacity .7s ease-in;
+  transition: opacity .5s ease-in;
 }
-//
+
 
 //audiobuttons change state
 //if we are in record page + state of play
