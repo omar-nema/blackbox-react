@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 import './styles/appStyles.min.css';
 import IntroScreen from './js/IntroScreen';
 import AudioButtons from './js/AudioButtons';
@@ -59,7 +60,15 @@ class App extends Component {
   renderCompAudioButtons = () =>  {
     if (this.state.pageState == 'record' || this.state.pageState == 'listen' ){
       return (
-        <AudioButtons audioState={this.audioState} pageState={this.pageState} audioPlayToggle={this.audioPlayToggle} restartRecording={this.restartRecording} shareConfirmation={this.shareConfirmation} pageState={this.state.pageState} audioState={this.state.audioState} audioRestart={this.audioRestart} navPageConfirmation={this.navPageConfirmation} audioReplay={this.audioReplay}/>
+        <ReactCSSTransitionGroup
+         transitionName="example"
+         transitionAppear={true}
+     transitionAppearTimeout={500}
+     transitionEnter={false}
+     transitionLeave={false}>
+           <AudioButtons audioState={this.audioState} pageState={this.pageState} audioPlayToggle={this.audioPlayToggle} restartRecording={this.restartRecording} shareConfirmation={this.shareConfirmation} pageState={this.state.pageState} audioState={this.state.audioState} audioRestart={this.audioRestart} navPageConfirmation={this.navPageConfirmation} audioReplay={this.audioReplay}/>
+       </ReactCSSTransitionGroup>
+
       )
     }
   }
@@ -79,7 +88,6 @@ class App extends Component {
   render() {
     return (
       <div className="app-container">
-        {console.log('do u even get it')}
         <div className="app-component-holder">
           {this.renderPageIntro()}
           {this.renderCompAudioButtons()}
