@@ -49,24 +49,33 @@ class App extends Component {
     this.setState({audioState: 'init'})
   }
 
+  //HELPER FUNCTIONS
+  transitionFade = (input) => {
+    return <ReactCSSTransitionGroup
+      transitionName="fade"
+      transitionAppear={true}
+      transitionAppearTimeout={500}
+      transitionEnter={false}
+      transitionLeave={false}>{input}</ReactCSSTransitionGroup>
+  }
+
   //PAGE AND COMPONENT RENDER FUNCTIONS
   renderPageIntro = () => {
     if (this.state.pageState == 'intro'){
-      return (
-        <IntroScreen onClick={this.navPageRecord}></IntroScreen>
-      )
+      let introScreen = <IntroScreen onClick={this.navPageRecord}></IntroScreen>;
+      return this.transitionFade(introScreen);
     }
   }
   renderCompAudioButtons = () =>  {
     if (this.state.pageState == 'record' || this.state.pageState == 'listen' ){
-      return (
-         <AudioButtons audioState={this.audioState} pageState={this.pageState} audioPlayToggle={this.audioPlayToggle} restartRecording={this.restartRecording} shareConfirmation={this.shareConfirmation} pageState={this.state.pageState} audioState={this.state.audioState} audioRestart={this.audioRestart} navPageConfirmation={this.navPageConfirmation} audioReplay={this.audioReplay}/>
-      )
+      let audioButtons = <AudioButtons audioState={this.audioState} pageState={this.pageState} audioPlayToggle={this.audioPlayToggle} restartRecording={this.restartRecording} shareConfirmation={this.shareConfirmation} pageState={this.state.pageState} audioState={this.state.audioState} audioRestart={this.audioRestart} navPageConfirmation={this.navPageConfirmation} audioReplay={this.audioReplay}/>;
+      return this.transitionFade(audioButtons);
     }
   }
   renderCompAudioWidget = () => {
     if (this.state.pageState == 'record' || this.state.pageState == 'listen'){
-      return <AudioWidget pageState={this.state.pageState} audioState={this.state.audioState}/>
+      let audioWidget = <AudioWidget pageState={this.state.pageState} audioState={this.state.audioState}/>;
+      return this.transitionFade(audioWidget);
     }
   }
   renderPageShareConfirmation = () => {

@@ -18,8 +18,8 @@ html {
   justify-content: center;
 }
 .app-component-holder {
-  // max-width: $width-app-pct;
   flex-basis: $width-app-pct;
+  max-width: $width-app-max;
 }
 .audio-widget {
   background: #0E0E0E;
@@ -55,7 +55,7 @@ html {
   background: #141414;
 }
 .dialog-container {
-  border: 1px dashed #9C9A9A;
+  border: .5px solid #9C9A9A;
   padding: 20px;
   margin-bottom: 30px;
   border-radius: 2px;
@@ -65,32 +65,25 @@ html {
 }
 
 
-.example-enter {
-  opacity: 0.01;
-}
-.example-enter.example-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
 
-.example-leave {
-  opacity: 1;
-}
-
-.example-leave.example-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-
-.example-appear {
+// .fade-leave {
+//   opacity: 1;
+// }
+//
+// .fade-leave.example-leave-active {
+//   opacity: 0.01;
+//   transition: opacity 300ms ease-in;
+// }
+//
+.fade-appear {
   opacity: 0.01;
 }
 
-.example-appear.example-appear-active {
+.fade-appear.fade-appear-active {
   opacity: 1;
-  transition: opacity .5s ease-in;
+  transition: opacity .7s ease-in;
 }
-
+//
 
 //audiobuttons change state
 //if we are in record page + state of play
