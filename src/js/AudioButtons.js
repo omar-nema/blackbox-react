@@ -45,13 +45,13 @@ class AudioButtons extends Component {
   render(){
     return (
       <div>
-        <div onTouchStart={this.props.audioPlayToggle} className={'button audio action-pause ' + this.props.audioState}>
+        <div onClick={this.props.audioPlayToggle} className={'button audio action-pause ' + this.props.audioState}>
           {this.getPauseButtonText()}
         </div>
-        <div className={'button audio action-start ' + this.props.audioState} onTouchStart={this.getShareButtonFunction()}>
+        <div className={'button audio action-start ' + this.props.audioState} onClick={this.getShareButtonFunction()}>
           {this.getShareButtonText()}
         </div>
-        <div onTouchStart={this.getRestartButtonFunction()} className={'button audio action-stop ' + this.props.audioState}>
+        <div onClick={this.getRestartButtonFunction()} className={'button audio action-stop ' + this.props.audioState}>
           {this.getRestartButtonText()}
         </div>
       </div>

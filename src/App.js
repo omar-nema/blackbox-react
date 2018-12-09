@@ -53,22 +53,14 @@ class App extends Component {
   renderPageIntro = () => {
     if (this.state.pageState == 'intro'){
       return (
-        <IntroScreen onTouchStart={this.navPageRecord}></IntroScreen>
+        <IntroScreen onClick={this.navPageRecord}></IntroScreen>
       )
     }
   }
   renderCompAudioButtons = () =>  {
     if (this.state.pageState == 'record' || this.state.pageState == 'listen' ){
       return (
-        <ReactCSSTransitionGroup
-         transitionName="example"
-         transitionAppear={true}
-     transitionAppearTimeout={500}
-     transitionEnter={false}
-     transitionLeave={false}>
-           <AudioButtons audioState={this.audioState} pageState={this.pageState} audioPlayToggle={this.audioPlayToggle} restartRecording={this.restartRecording} shareConfirmation={this.shareConfirmation} pageState={this.state.pageState} audioState={this.state.audioState} audioRestart={this.audioRestart} navPageConfirmation={this.navPageConfirmation} audioReplay={this.audioReplay}/>
-       </ReactCSSTransitionGroup>
-
+         <AudioButtons audioState={this.audioState} pageState={this.pageState} audioPlayToggle={this.audioPlayToggle} restartRecording={this.restartRecording} shareConfirmation={this.shareConfirmation} pageState={this.state.pageState} audioState={this.state.audioState} audioRestart={this.audioRestart} navPageConfirmation={this.navPageConfirmation} audioReplay={this.audioReplay}/>
       )
     }
   }
